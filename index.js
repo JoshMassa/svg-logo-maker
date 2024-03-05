@@ -40,13 +40,14 @@ const writeSVG = (data) => {
         });
             //Display user's answers after finishing prompts
             console.log(`\x1b[35m${'Your answers were: '}\x1b[0m`, data);
-}
+};
 
 //Function to initialize the application
 async function init() {
     try {
         //Display questions to user in terminal
         const data = await inquirer.prompt(questions);
+        console.log('User Input Data: ', data);
         //Write the SVG file
         writeSVG(data);
     } catch (err) {
