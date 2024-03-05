@@ -2,6 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//Import required code from other files
+const {Circle, Triangle, Square} = require('./lib/shapes')
+const generateSVG = require('./lib/generateSVG')
+
 //Array of questions for user input
 const questions = [
     {
@@ -27,14 +31,29 @@ const questions = [
     }
 ]
 
+//Function to write SVG file
+const writeSVG = (data) => {
+    const svgContent = generateSVG(data);
+        fs.writeFile('logo.svg', svgContent, (err) => {
+            //Display error if error, otherwise indicate svg was generated
+            err ? console.error(err) : console.log(`\x1b[36m${'Generated logo.svg'}\x1b[0m`)
+        });
+            //Display user's answers after finishing prompts
+            console.log(`\x1b[35m${'Your answers were: '}\x1b[0m`, data);
+}
+
 //Function to initialize the application
 async function init() {
     try {
+        //Display questions to user in terminal
         const data = await inquirer.prompt(questions);
-        // writeReadme(data);
+        //Write the SVG file
+        writeSVG(data);
     } catch (err) {
+        //Catch and display any errors
         console.error(err);
     }
 };
 
+//Call function to initialize application
 init();
