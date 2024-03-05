@@ -3,30 +3,30 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 //Import required code from other files
-const {Circle, Triangle, Square} = require('./lib/shapes')
+const { Circle, Triangle, Square } = require('./lib/shapes')
 const generateSVG = require('./lib/generateSVG')
 
 //Array of questions for user input
 const questions = [
     {
         type: 'input',
-        name: 'Text',
+        name: 'text',
         message: 'Please enter up to three characters you would like to display on your logo.'
     },
     {
         type: 'input',
-        name: 'Text Color',
+        name: 'textColor',
         message: 'Please enter a color keyword or a hexadecimal number to set the color of your logo text.'
     },
     {
         type: 'list',
-        name: 'Shape',
+        name: 'shape',
         message: 'Please choose a shape for your logo.',
         choices: ['Circle', 'Triangle', 'Square']
     },
     {
         type: 'input',
-        name: 'Shape Color',
+        name: 'shapeColor',
         message: 'Please enter a color keyword or a hexadecimal number to set the color of your logo shape.'
     }
 ]

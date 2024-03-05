@@ -2,6 +2,6 @@
 
   <rect x="90" y="40" width="150" height="150" fill='green' />
 
-  <text x="165" y="125" font-size="60" text-anchor="middle" fill="red">AAA</text>
+  <text x="165" y="125" font-size="60" text-anchor="middle" fill="blue">BBB</text>
 
 </svg>
